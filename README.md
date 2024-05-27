@@ -13,6 +13,7 @@
 
 
 ## 패키지 구조
+```
 src
 📦main
  ┣ 📂java
@@ -30,3 +31,5 @@ src
  ┃ ┣ 📂static
  ┃ ┣ 📂templates
  ┃ ┗ 📜application.properties
+```
+
