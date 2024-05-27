@@ -10,3 +10,17 @@
 | refactor | 코드 리팩토링에 대한 커밋 |
 | test | 테스트 코드 수정에 대한 커밋 |
 | perf | 성능 개선에 대한 커밋 |
+
+
+## 패키지 구조
+src
+ ┣ main
+ ┃ ┣ java
+ ┃ ┃ ┗ LikeLion
+ ┃ ┃ ┃ ┗ backend
+ ┃ ┃ ┃ ┃ ┗ domain
+ ┃ ┃ ┃ ┃ ┣ global
+ ┃ ┃ ┃ ┃ ┃ ┣ exception
+ ┃ ┗ resources
+ ┃ ┃ ┣ static
+ ┃ ┃ ┣ templates
