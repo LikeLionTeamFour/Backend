@@ -14,22 +14,23 @@
 
 ## 패키지 구조
 ```
-src
-📦main
- ┣ 📂java
- ┃ ┗ 📂LikeLion
- ┃ ┃ ┗ 📂backend
- ┃ ┃ ┃ ┣ 📂domain
- ┃ ┃ ┃ ┣ 📂global
- ┃ ┃ ┃ ┃ ┗ 📂exception
- ┃ ┃ ┃ ┃ ┃ ┣ 📜ErrorCode.java
- ┃ ┃ ┃ ┃ ┃ ┣ 📜ExceptionResponse.java
- ┃ ┃ ┃ ┃ ┃ ┣ 📜GlobalExceptionHandler.java
- ┃ ┃ ┃ ┃ ┃ ┗ 📜ServiceException.java
- ┃ ┃ ┃ ┗ 📜BackendApplication.java
- ┗ 📂resources
- ┃ ┣ 📂static
- ┃ ┣ 📂templates
- ┃ ┗ 📜application.properties
+📦src
+ ┣ 📂main
+ ┃ ┣ 📂java
+ ┃ ┃ ┗ 📂LikeLion
+ ┃ ┃ ┃ ┗ 📂backend
+ ┃ ┃ ┃ ┃ ┣ 📂domain
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂auth
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂post
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂recommend
+ ┃ ┃ ┃ ┃ ┣ 📂global
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂exception
+ ┃ ┃ ┃ ┃ ┗ 📜BackendApplication.java
+ ┃ ┗ 📂resources
+ ┃ ┃ ┣ 📂static
+ ┃ ┃ ┣ 📂templates
+ ┃ ┃ ┣ 📜application-db.yml
+ ┃ ┃ ┣ 📜application-test.yml
+ ┃ ┃ ┗ 📜application.properties
 ```
 
