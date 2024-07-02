@@ -1,7 +1,9 @@
 package LikeLion.backend.global.exception;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
@@ -12,5 +14,13 @@ public class GlobalExceptionHandler {
         return ResponseEntity
                 .status(e.getErrorCode().getHttpStatus())
                 .body(ExceptionResponse.of(e.getErrorCode()));
+    }
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public static class ResourceNotFoundException extends RuntimeException {
+        private static final long serialVersionUID = 1L;
+
+        public ResourceNotFoundException(String message) {
+            super(message);
+        }
     }
 }
