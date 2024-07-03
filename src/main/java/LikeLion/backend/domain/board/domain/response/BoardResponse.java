@@ -1,18 +1,19 @@
 package LikeLion.backend.domain.board.domain.response;
-import lombok.AllArgsConstructor;
+
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class BoardResponse {
-    private Integer id;
+    private Long boardId;
     private String title;
-    private String content;
     private String writer;
-    private Integer view;
-    private Integer like;
+    private Long view;
+    private Long like;
+    private LocalDateTime createdAt;
+
+    // Getters and setters
 }

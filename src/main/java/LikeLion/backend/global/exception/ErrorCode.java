@@ -13,7 +13,10 @@ public enum ErrorCode {
     // Security
     NEED_AUTHORIZED(HttpStatus.UNAUTHORIZED, "SECURITY_0001","인증이 필요합니다."),
     ACCESS_DENIED(HttpStatus.FORBIDDEN, "SECURITY_0002","권한이 없습니다."),
-    DUPLICATE_INFO(HttpStatus.CONFLICT, "SECURITY_0003", "이미 존재하는 정보입니다. ")
+    DUPLICATE_INFO(HttpStatus.CONFLICT, "SECURITY_0003", "이미 존재하는 정보입니다. "),
+
+    // Board
+    BOARD_NOT_FOUND(HttpStatus.NOT_FOUND, "BOARD_0001", "게시글을 찾을 수 없습니다."),
     ;
 
     private final HttpStatus httpStatus;
