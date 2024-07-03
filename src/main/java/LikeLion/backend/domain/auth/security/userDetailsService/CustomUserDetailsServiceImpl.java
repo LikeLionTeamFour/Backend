@@ -5,6 +5,7 @@ import LikeLion.backend.domain.auth.repository.UserRepository;
 import LikeLion.backend.domain.auth.security.userDetails.CustomUserDetailsImpl;
 import LikeLion.backend.global.exception.ServiceException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -15,7 +16,9 @@ import java.util.Optional;
 @Component
 @RequiredArgsConstructor
 public class CustomUserDetailsServiceImpl implements UserDetailsService {
-    private final UserRepository userRepository;
+
+    @Autowired
+    private UserRepository userRepository;
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(email)
