@@ -12,6 +12,7 @@ import java.util.List;
 @Entity
 @Table(name = "board")
 @Getter
+@Setter
 @NoArgsConstructor
 public class Board extends BaseEntity {
     @Id
@@ -24,20 +25,25 @@ public class Board extends BaseEntity {
     @Column(name = "content")
     private String content;
 
+    @Column(name = "view")
+    private Long view;
+
+    @Column(name = "like")
+    private Long like;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "board", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    private List<View> views = new ArrayList<>();
 
-    @OneToMany(mappedBy = "board", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    private List<Like> likes = new ArrayList<>();
+
 
     @Builder
-    public Board(String title, String content, User user) {
+    public Board(String title, String content, User user,Long viewCount,Long likeCount) {
         this.title = title;
         this.content = content;
         this.user = user;
+        this.view = viewCount;
+        this.like = likeCount;
     }
 }

@@ -1,8 +1,6 @@
 package LikeLion.backend.domain.auth.domain.entity;
 
 import LikeLion.backend.domain.board.domain.entity.Board;
-import LikeLion.backend.domain.board.domain.entity.Like;
-import LikeLion.backend.domain.board.domain.entity.View;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -34,12 +32,6 @@ public class User {
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private List<Board> boards = new ArrayList<>();
-
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    private List<View> views = new ArrayList<>();
-
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    private List<Like> likes = new ArrayList<>();
 
     @Builder
     public User(String username, String email, String password, Role role) {

@@ -15,11 +15,11 @@ public class BoardInfoResponse {
     private String title;
     private String content;
     private String writer;
-    private Integer view;
-    private Integer like;
+    private Long view;
+    private Long like;
     private LocalDateTime createdAt;
 
-    public BoardInfoResponse(Long boardId, String title, String content, String writer, Integer view, Integer like, LocalDateTime createdAt) {
+    public BoardInfoResponse(Long boardId, String title, String content, String writer, Long view, Long like, LocalDateTime createdAt) {
         this.boardId = boardId;
         this.title = title;
         this.content = content;
@@ -29,7 +29,7 @@ public class BoardInfoResponse {
         this.createdAt = createdAt;
     }
 
-    public static BoardInfoResponse from(Board board , String writer , Integer view , Integer like){
+    public static BoardInfoResponse from(Board board , String writer , Long view , Long like){
         return new BoardInfoResponse(board.getId(), board.getTitle(), board.getContent(), writer, view, like, board.getCreatedAt());
     }
 }
