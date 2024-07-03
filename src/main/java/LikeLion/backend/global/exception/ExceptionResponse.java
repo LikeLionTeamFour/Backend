@@ -21,4 +21,7 @@ public class ExceptionResponse {
     public static ExceptionResponse of(ErrorCode errorCode){
         return new ExceptionResponse(errorCode.getCode(), errorCode.getHttpStatus(), errorCode.getMessage());
     }
+    public static ExceptionResponse of(ErrorCode errorCode, String message){
+        return new ExceptionResponse(errorCode.getCode(), errorCode.getHttpStatus(), message);
+    }
 }
