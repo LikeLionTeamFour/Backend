@@ -62,13 +62,13 @@ public class AuthController {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/emails/code-issuance")
-    public ResponseEntity<> sendEmail(){
-
-    }
-
-    @PostMapping("/emails/code-validation")
-    public ResponseEntity<> checkValidateCode(){
-
-    }
+//    @PostMapping("/emails/code-issuance")
+//    public ResponseEntity<> sendEmail(){
+//
+//    }
+//
+//    @PostMapping("/emails/code-validation")
+//    public ResponseEntity<> checkValidateCode(){
+//
+//    }
 }
