@@ -1,11 +1,17 @@
 package LikeLion.backend.domain.auth.config;
 
+import LikeLion.backend.domain.auth.repository.UserRepository;
+import LikeLion.backend.domain.auth.security.authenticationProvider.CustomAuthenticationProviderImpl;
+import LikeLion.backend.domain.auth.security.userDetailsService.CustomUserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -44,5 +50,14 @@ public class SecurityConfig {
         return new HttpSessionSecurityContextRepository();
     }
 
+    @Bean
+    public AuthenticationProvider authenticationProvider(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder){
+        return new CustomAuthenticationProviderImpl(userDetailsService, passwordEncoder);
+    }
+
+    @Bean
+    public UserDetailsService userDetailsService(){
+        return new CustomUserDetailsServiceImpl();
+    }
     // CORS
 }

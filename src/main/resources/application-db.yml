@@ -12,7 +12,7 @@ spring:
     generate-ddl: false
     open-in-view: false
     hibernate:
-      ddl-auto: create-drop #Todo : 배포시에는 변경
+      ddl-auto: update #Todo : 배포시에는 변경
 
     show-sql: true
 

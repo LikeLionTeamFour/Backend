@@ -36,6 +36,7 @@ public class AuthController {
         // 세션에 Context 저장 로직 (key : SPRING_SECURITY_CONTEXT)
         // 참고 : SecurityContextHolderFilter에서 Context가 자동 로드되는데, DelegatingSecurityContextRepository에서 구현체가 선택된다.
         // 디폴트로 등록되는 구현체 중 하나가 세션관련 구현체
+        System.out.println("AuthController.login");
         securityContextRepository.saveContext(authService.check(loginRequest), request, response);
         return ResponseEntity.ok().build();
 
@@ -48,7 +49,7 @@ public class AuthController {
             throw new ServiceException(ErrorCode.ACCESS_DENIED);
         else{
             session.invalidate();
-            Cookie cookie = new Cookie("JSESIIONID", null);
+            Cookie cookie = new Cookie("JSESSIONID", null);
             cookie.setPath("/");
             cookie.setMaxAge(0);
             response.addCookie(cookie);
