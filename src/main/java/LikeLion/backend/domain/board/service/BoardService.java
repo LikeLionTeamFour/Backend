@@ -31,8 +31,8 @@ public class BoardService {
         Post post = boardRepository.findById(id)
                 .orElseThrow(() -> new GlobalExceptionHandler.ResourceNotFoundException("Board not exist with id :" + id));
 
-        int cnt = post.getViewCnt();
-        post.setViewCnt(cnt + 1);
+        int cnt = post.getView();
+        post.setView(cnt + 1);
         boardRepository.save(post); // 조회 수 증가 후 저장
 
         return ResponseEntity.ok(post);
