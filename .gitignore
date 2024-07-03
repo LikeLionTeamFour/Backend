@@ -38,4 +38,5 @@ out/
 
 
 ## properties files
-**/application.properties
+**/application.propertiesapplication-test.yml
+application.properties
