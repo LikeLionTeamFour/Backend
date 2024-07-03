@@ -39,10 +39,10 @@ public class SecurityConfig {
                         .maximumSessions(1)
                         .maxSessionsPreventsLogin(false))
                 .authorizeHttpRequests((authorizeRequests) -> authorizeRequests
-                        .requestMatchers(HttpMethod.POST, "/api/auth/logout").authenticated()
-                        .requestMatchers(HttpMethod.POST, "/api/v1/board").authenticated()
-                        .requestMatchers(HttpMethod.PUT, "/api/v1/board").authenticated()
-                        .requestMatchers(HttpMethod.DELETE, "/api/v1/board").authenticated()
+//                        .requestMatchers(HttpMethod.POST, "/api/auth/logout").authenticated()
+//                        .requestMatchers(HttpMethod.POST, "/api/v1/board").authenticated()
+//                        .requestMatchers(HttpMethod.PUT, "/api/v1/board").authenticated()
+//                        .requestMatchers(HttpMethod.DELETE, "/api/v1/board").authenticated()
                         .anyRequest().permitAll())
         ;
 
