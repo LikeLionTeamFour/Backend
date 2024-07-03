@@ -62,7 +62,7 @@ public class BoardController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping
+    @GetMapping("/v1/board/list")
     public ResponseEntity<Map<String, Object>>  getBoards(@RequestParam(defaultValue = "0") Integer page,
                                                           @RequestParam(defaultValue = "10") Integer size) {
         Pageable pageable = PageRequest.of(page, size);
