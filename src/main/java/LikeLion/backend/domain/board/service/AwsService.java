@@ -32,7 +32,7 @@ public class AwsService {
     private GeneratePresignedUrlRequest getGeneratePreSignedUrlRequest(String bucket, String fileName) {
         GeneratePresignedUrlRequest generatePresignedUrlRequest =
                 new GeneratePresignedUrlRequest(bucket, fileName)
-                        .withMethod(HttpMethod.POST)
+                        .withMethod(HttpMethod.PUT)
                         .withExpiration(getPreSignedUrlExpiration());
         generatePresignedUrlRequest.addRequestParameter(
                 Headers.S3_CANNED_ACL,
