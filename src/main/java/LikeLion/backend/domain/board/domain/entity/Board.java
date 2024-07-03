@@ -28,7 +28,7 @@ public class Board extends BaseEntity {
     @Column(name = "view")
     private Long view;
 
-    @Column(name = "like")
+    @Column(name = "like_count")
     private Long like;
 
     @ManyToOne(fetch = FetchType.LAZY)

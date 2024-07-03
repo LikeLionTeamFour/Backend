@@ -74,8 +74,8 @@ public class BoardService {
 
 
 
-    // delete board
-    public ResponseEntity<Map<String, Boolean>> deleteBoard(Integer id) {
+    @Transactional
+    public ResponseEntity<Map<String, Boolean>> deleteBoard(Long id) {
         Board board = boardRepository.findById(id)
                 .orElseThrow(() -> new GlobalExceptionHandler.ResourceNotFoundException("Board not exist with id :" + id));
 

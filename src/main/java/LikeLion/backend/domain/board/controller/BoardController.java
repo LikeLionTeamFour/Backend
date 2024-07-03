@@ -37,8 +37,8 @@ public class BoardController {
         return ResponseEntity.ok(boardService.getBoardById(boardId));
     }
 
-    @GetMapping("/v1/board/{boardId}")
-    public ResponseEntity<Void> getBoard(@AuthenticationPrincipal CustomUserDetailsImpl userDetails, @PathVariable Long boardId) {
+    @PostMapping("/v1/board/like/{boardId}")
+    public ResponseEntity<Void> increaseLike(@AuthenticationPrincipal CustomUserDetailsImpl userDetails, @PathVariable Long boardId) {
         boardService.increaseLike(userDetails.getUsername(),boardId);
         return ResponseEntity.ok().build();
     }
@@ -54,6 +54,12 @@ public class BoardController {
             @RequestBody BoardInfoRequest boardInfoRequest,
             @PathVariable Long boardId) {
         return ResponseEntity.ok(boardService.updateBoard(userDetails.getUsername(), boardInfoRequest,boardId));
+    }
+
+    @DeleteMapping("/v1/board/{boardId}")
+    public ResponseEntity<Void> deleteBoard(@AuthenticationPrincipal CustomUserDetailsImpl userDetails, @PathVariable Long boardId) {
+        boardService.deleteBoard(userDetails.getUsername(), boardId);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping

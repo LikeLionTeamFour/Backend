@@ -9,10 +9,10 @@ spring:
   # JPA 설정
   jpa:
     database: mysql
-    generate-ddl: false
+    generate-ddl: true
     open-in-view: false
     hibernate:
-      ddl-auto: create-drop #Todo : 배포시에는 변경
+      ddl-auto: update
 
     show-sql: true
 
