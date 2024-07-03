@@ -1,10 +1,12 @@
-package LikeLion.backend.domain.post.domain.entity;
+package LikeLion.backend.domain.board.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -23,9 +25,15 @@ public class Post {
     @Column(name = "content")
     private String content;
 
-    @Column(name = "writer")
-    private String writer;
+    @Column(name = "like")
+    private Integer like;
 
-    @Column(name = "view_cnt")
-    private Integer viewCnt;
+    @Column(name = "view")
+    private Integer view;
+
+    @Column(name = "created_at")
+    private LocalDateTime created_at;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updated_at;
 }
