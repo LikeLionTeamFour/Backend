@@ -4,16 +4,19 @@ import LikeLion.backend.domain.auth.security.userDetails.CustomUserDetailsImpl;
 import LikeLion.backend.domain.board.domain.entity.Board;
 import LikeLion.backend.domain.board.domain.request.BoardInfoRequest;
 import LikeLion.backend.domain.board.domain.response.BoardInfoResponse;
+import LikeLion.backend.domain.board.service.AwsService;
 import LikeLion.backend.domain.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +28,7 @@ import java.util.stream.Collectors;
 public class BoardController {
 
     private final  BoardService boardService;
+    private final AwsService awsService;
 
     // create board rest api
     @PostMapping("/v1/board")
@@ -67,6 +71,14 @@ public class BoardController {
                                                           @RequestParam(defaultValue = "10") Integer size) {
         Pageable pageable = PageRequest.of(page, size);
         return ResponseEntity.ok(boardService.getBoards(pageable));
+    }
+
+    @GetMapping("/file/{filename}")
+    public ResponseEntity<String> getFile(@PathVariable(value = "filename") String fileName) throws IOException {
+
+        String url = awsService.getPreSignedUrl(fileName);
+
+        return new ResponseEntity<>(url, HttpStatus.OK);
     }
 
 }
