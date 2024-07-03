@@ -58,4 +58,16 @@ public class AuthService {
                 .build();
         userRepository.save(user);
     }
+
+    @Transactional
+    public void checkEmail(String email){
+        if (userRepository.findByEmail(email).isPresent())
+            throw new ServiceException(ErrorCode.DUPLICATE_INFO);
+    }
+
+    @Transactional
+    public void checkUsername(String username){
+        if (userRepository.findByEmail(username).isPresent())
+            throw new ServiceException(ErrorCode.DUPLICATE_INFO);
+    }
 }
